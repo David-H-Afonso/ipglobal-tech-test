@@ -10,8 +10,8 @@ const initialState: PopularMoviesState = {
 	value: [] as Movie[],
 }
 
-export const popularPopularMovies = createSlice({
-	name: 'popularPopularMovies',
+export const popularMovies = createSlice({
+	name: 'popularMovies',
 	initialState,
 	reducers: {
 		updatePopularMovies: (state, payload: PayloadAction<Movie[]>) => {
@@ -23,7 +23,7 @@ export const popularPopularMovies = createSlice({
 	},
 })
 
-export const { updatePopularMovies, setPopularMovies } = popularPopularMovies.actions
-export default popularPopularMovies.reducer
+export const { updatePopularMovies, setPopularMovies } = popularMovies.actions
+export default popularMovies.reducer
 
 export const selectPopularMovies = (state: RootState) => state.popularMovies.value
