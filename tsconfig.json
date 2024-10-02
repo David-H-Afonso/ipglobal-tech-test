@@ -21,6 +21,13 @@
 			"@/*": ["./src/*"]
 		}
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/pages/_app.tsx"],
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts",
+		"src/pages/_app.tsx",
+		"src/utils/debounce/debounce.js"
+	],
 	"exclude": ["node_modules"]
 }

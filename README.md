@@ -113,6 +113,10 @@ I first started creating a common Layout with a Navbar to be able to navigate fr
 
 Here I faced some issues related to NextJS **not** routing how I wanted to due to some bad folder placement for my part (I nested `popularMovies/popularMovies.tsx` instead of doing `popularMovies/index.tsx` or just `popularMovies.tsx` at the same level as `_app.tsx`, which is the solution I chose). I decided to fix it this time by creating a custom `_app.tsx` component to nest my provides, and inside use a component `App.tsx` to get the entities ready. My `index.tsx` file on the pages folder redirects to the Popular Movies page, and now everything is redirecting as expected. Then, I started creating the 3 main pages I'll need: Popular Movies, Search and Rated Movies. Most of the time is spent writing JSX with Tailwind styles and making sure everything is as it should.
 
+### Final funtionalities
+
+After some time working on styles and displaying information, and once the Popular Movies part was done as requested, I decided to get quicker approach to the search and the ranking parts. I think most of the code quality can be seen inside the components I've already made, so I'll try to take less to finish the required functionallities. I started with the search bar, created it file and worked on it's logic. Since it's just searching, there's no need to store on redux any information.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
