@@ -4,7 +4,7 @@ import { MoviesData } from '@/types/movies'
 import { errorHandler, respondeErrorHandler } from '@/utils'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-const movies = async (req: NextApiRequest, res: NextApiResponse<MoviesData>) => {
+const popularMovies = async (req: NextApiRequest, res: NextApiResponse<MoviesData>) => {
 	const apiKey = process.env.TMDB_API_KEY
 	const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`
 
@@ -27,4 +27,4 @@ const movies = async (req: NextApiRequest, res: NextApiResponse<MoviesData>) => 
 	}
 }
 
-export default movies
+export default popularMovies
