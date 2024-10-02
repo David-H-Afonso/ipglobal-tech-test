@@ -1,3 +1,8 @@
+export type MoviesData = {
+	movies: Movies
+	error?: string
+}
+
 export type Movies = Movie[]
 
 export interface Movie {

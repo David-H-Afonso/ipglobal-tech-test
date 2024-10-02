@@ -19,17 +19,16 @@ Any error instance that's found and it's not handled should be added.
 
 import { Dispatch, SetStateAction } from 'react'
 
+export const respondeErrorHandler = async (response: Response) => {
+	throw new Error(`Response was not ok:', ${await response.text()}`)
+}
+
 export const errorHandler = (e: unknown, setError?: Dispatch<SetStateAction<string | null>>) => {
 	/*
         ERROR INSTANCE
     */
 	if (e instanceof Error) {
 		const errorMessage = e.message
-
-		console.log('START ERROR')
-		console.log(errorMessage)
-		console.log(typeof errorMessage)
-		console.log('END ERROR')
 		if (setError) setError(errorMessage)
 		throw new Error(errorMessage)
 	}
@@ -37,5 +36,9 @@ export const errorHandler = (e: unknown, setError?: Dispatch<SetStateAction<stri
 	/* 
         DEFAULT INSTANCE
     */
+
+	// In case the error is not what we expect but it's a string, i.e. throw "error"
+	if (typeof e === 'string' && setError) setError(e)
+	// Throw default error in case error is not handled
 	throw new Error('There was an unexpected error')
 }

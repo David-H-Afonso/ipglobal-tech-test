@@ -1,15 +1,10 @@
 // Route to get the movie url
 
-import { Movies } from '@/types/movies'
-import { errorHandler } from '@/utils'
+import { MoviesData } from '@/types/movies'
+import { errorHandler, respondeErrorHandler } from '@/utils'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-type Data = {
-	movies: Movies
-	error?: string
-}
-
-const movies = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
+const movies = async (req: NextApiRequest, res: NextApiResponse<MoviesData>) => {
 	const apiKey = process.env.TMDB_API_KEY
 	const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`
 
@@ -18,7 +13,10 @@ const movies = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
 	try {
 		const response = await fetch(url)
 
-		if (!response.ok) throw new Error('Failed to fetch movies')
+		if (!response.ok) {
+			respondeErrorHandler(response)
+			return
+		}
 
 		const data = await response.json()
 
