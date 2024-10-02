@@ -16,6 +16,7 @@ export const MovieCover: React.FC<Props> = (props) => {
 	return (
 		<li className='rounded-[20px] bg-[rgb(31,41,55)] text-white border p-4 rounded-md shadow-md mb-4 flex flex-col items-center max-w-[380px] w-full transform transition-transform duration-200 hover:scale-105 cursor-pointer'>
 			<Image
+				priority
 				src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
 				alt={movie.title}
 				width={200}

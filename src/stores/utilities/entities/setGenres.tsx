@@ -1,4 +1,4 @@
-import { getGenres } from '@/services/getGenres'
+import { getGenres } from '@/services'
 import { setGenres } from '@/stores/reducers/genres'
 import { AppDispatch } from '@/stores/store'
 
