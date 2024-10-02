@@ -1,1 +1,1 @@
-export { testElement } from './testElement/testElement'
+export { CustomLink } from './CustomLink/CustomLink'

@@ -1,9 +1,14 @@
-const Home = () => {
-	return (
-		<div>
-			<h1>Welcome to Next.js with TypeScript Boilerplate</h1>
-		</div>
-	)
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
+
+const Home: React.FC = () => {
+	const router = useRouter()
+
+	useEffect(() => {
+		router.push('/popularMovies')
+	}, [router])
+
+	return null
 }
 
 export default Home
