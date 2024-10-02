@@ -1,1 +1,1 @@
-export { testUtil } from './testUtil/testUtil'
+export { errorHandler } from './errorHandler/errorHandler'
