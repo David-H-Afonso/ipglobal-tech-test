@@ -11,6 +11,7 @@ import {
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import popularMovies from './reducers/popularMovies'
+import genres from './reducers/genres'
 
 const persistConfig = {
 	key: 'root',
@@ -19,6 +20,7 @@ const persistConfig = {
 
 const reducer = combineReducers({
 	popularMovies,
+	genres,
 })
 
 const persistedReducer = persistReducer(persistConfig, reducer)
