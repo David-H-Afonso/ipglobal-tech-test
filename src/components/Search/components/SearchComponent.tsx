@@ -1,5 +1,4 @@
 import { MovieCover, SearchBar } from '@/components/elements'
-import { postRating } from '@/services/postRating'
 import { Genre } from '@/types/genres'
 import { Movie } from '@/types/movies'
 import React, { Dispatch, SetStateAction } from 'react'
