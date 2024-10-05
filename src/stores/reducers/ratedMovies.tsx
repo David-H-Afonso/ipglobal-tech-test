@@ -40,7 +40,7 @@ export const ratedMovies = createSlice({
 	},
 })
 
-export const { updateRatedMovies, setRatedMovies } = ratedMovies.actions
+export const { updateRatedMovies, setRatedMovies, updateRatedMovie } = ratedMovies.actions
 export default ratedMovies.reducer
 
 export const selectRatedMovies = (state: RootState) => state.ratedMovies.value
