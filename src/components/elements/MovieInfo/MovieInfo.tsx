@@ -18,11 +18,12 @@ interface Props {
 	setOpen: React.Dispatch<React.SetStateAction<boolean>>
 	movie: Movie
 	genres: Genre[]
+	rating?: number
 }
 
 export const MovieInfo: React.FC<Props> = (props) => {
 	const [snackbarProps, setSnackbarProps] = useState<SnackbarProps>({} as SnackbarProps)
-	const { open, setOpen, movie, genres } = props
+	const { open, setOpen, movie, genres, rating } = props
 	const dispatch = useAppDispatch()
 	const { rateMovie } = usePostRating()
 
@@ -41,8 +42,7 @@ export const MovieInfo: React.FC<Props> = (props) => {
 	// Saving the movie into a custom entity with the user rated movies, since the API don't give us this option and it's required by specs
 	const onRating = async (rating: number) => {
 		try {
-			const response = await rateMovie(movie.id.toString(), rating.toString())
-			if (!response) throw new Error('Error rating movie')
+			await rateMovie(movie.id.toString(), rating.toString())
 
 			// Add movie to rated movies entity
 			dispatch(updateRatedMovie({ movie, rating }))
@@ -117,7 +117,7 @@ export const MovieInfo: React.FC<Props> = (props) => {
 						</ul>
 
 						{/* Rating component, when clicked on a star, the movie is saved in "Rated movies popup" */}
-						<Rating onRatingSelect={onRating} />
+						<Rating onRatingSelect={onRating} rating={rating} />
 					</div>
 				</div>
 			</div>

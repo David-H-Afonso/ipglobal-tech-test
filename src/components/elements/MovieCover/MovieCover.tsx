@@ -8,11 +8,12 @@ import { Genre } from '@/types/genres'
 interface Props {
 	movie: Movie
 	genres: Genre[]
+	rating?: number
 }
 
 export const MovieCover: React.FC<Props> = (props) => {
 	const [isMovieInfoOpen, setIsMovieInfoOpen] = useState(false)
-	const { movie, genres } = props
+	const { movie, genres, rating } = props
 
 	const toggleMovieInfo = () => {
 		setIsMovieInfoOpen(!isMovieInfoOpen)
@@ -31,6 +32,7 @@ export const MovieCover: React.FC<Props> = (props) => {
 					setOpen={setIsMovieInfoOpen}
 					movie={movie}
 					genres={genres}
+					rating={rating}
 				/>
 			)}
 

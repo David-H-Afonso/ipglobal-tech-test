@@ -9,7 +9,8 @@ interface StarRatingProps {
 // This styles are shared across a full and a half star
 const commonStarStyles = 'cursor-pointer transition-colors duration-200 mr-2'
 
-export const Rating: React.FC<StarRatingProps> = ({ onRatingSelect, rating }) => {
+export const Rating: React.FC<StarRatingProps> = (props) => {
+	const { onRatingSelect, rating } = props
 	const [hoverRating, setHoverRating] = useState<number>(0)
 	const stars = [1, 2, 3, 4, 5] // This Array is just to avoid using [...Array(5)] on the render and having the code being more clear, the values are not used, only the index
 
@@ -44,7 +45,7 @@ export const Rating: React.FC<StarRatingProps> = ({ onRatingSelect, rating }) =>
 			{stars.map((_, index) => {
 				const fullStarValue = index + 1
 				const halfStarValue = index + 0.5
-				const currentValue = rating || hoverRating
+				const currentValue = rating ? hoverRating || rating : hoverRating
 
 				return (
 					<div
@@ -53,26 +54,22 @@ export const Rating: React.FC<StarRatingProps> = ({ onRatingSelect, rating }) =>
 						onMouseMove={(e) => handleMouseMove(e, index)}
 						onClick={(e) => handleClick(e, index)}>
 						{/* Half Star Render */}
-						<label>
-							<input type='radio' name='rating' className='hidden' value={halfStarValue} />
-							<FaStarHalfAlt
-								className={`${commonStarStyles} absolute left-0 top-0 ${
-									currentValue >= halfStarValue ? 'text-yellow-400' : 'text-gray-400'
-								}`}
-								size={24}
-							/>
-						</label>
+						<input type='radio' name='rating' className='hidden' value={halfStarValue} />
+						<FaStarHalfAlt
+							className={`${commonStarStyles} absolute left-0 top-0 ${
+								currentValue >= halfStarValue ? 'text-yellow-400' : 'text-gray-400'
+							}`}
+							size={24}
+						/>
 
 						{/* Full Star Render */}
-						<label>
-							<input type='radio' name='rating' className='hidden' value={fullStarValue} />
-							<FaStar
-								className={`${commonStarStyles} ${
-									currentValue >= fullStarValue ? 'text-yellow-400' : 'text-gray-400'
-								}`}
-								size={24}
-							/>
-						</label>
+						<input type='radio' name='rating' className='hidden' value={fullStarValue} />
+						<FaStar
+							className={`${commonStarStyles} ${
+								currentValue >= fullStarValue ? 'text-yellow-400' : 'text-gray-400'
+							}`}
+							size={24}
+						/>
 					</div>
 				)
 			})}
