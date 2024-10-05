@@ -12,9 +12,9 @@ const NavbarComponent = () => {
 			<div className='w-full mx-auto px-4 sm:px-6 lg:px-8'>
 				<div className='flex items-center justify-between h-16'>
 					<div className='flex items-center'>
-						<a href='/' className='text-white text-lg font-bold'>
+						<CustomLink href='/' className='text-white text-lg font-bold'>
 							<Image src={TMDB_Logo} alt='TMBD logo' priority className='max-w-36' />
-						</a>
+						</CustomLink>
 						<div className='hidden md:block'>
 							<div className='ml-10 flex items-baseline space-x-4'>
 								<CustomLink href='/popularMovies' className={customLinkStyles}>

@@ -9,7 +9,17 @@ export const MainLayout: React.FC<Props> = ({ children }) => {
 		<>
 			<div>
 				<Navbar />
-				<main>{children}</main>
+				<main>
+					{/* 
+						Portal useful to render a modal over the content, in this case, the movie information
+					*/}
+					<div id='movieInfoPortal' />
+
+					{/* 
+						Content render
+					*/}
+					{children}
+				</main>
 			</div>
 		</>
 	)

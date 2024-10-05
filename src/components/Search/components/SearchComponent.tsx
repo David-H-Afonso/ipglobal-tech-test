@@ -1,4 +1,5 @@
 import { MovieCover, SearchBar } from '@/components/elements'
+import { postRating } from '@/services/postRating'
 import { Genre } from '@/types/genres'
 import { Movie } from '@/types/movies'
 import React, { Dispatch, SetStateAction } from 'react'
@@ -12,8 +13,6 @@ interface Props {
 
 const SearchComponent: React.FC<Props> = (props) => {
 	const { search, setSearch, movies, genres } = props
-
-	console.log('movies', movies)
 
 	return (
 		<div className=''>

@@ -1,4 +1,6 @@
 export { MovieCover } from './MovieCover/MovieCover'
+export { MovieInfo } from './MovieInfo/MovieInfo'
+export { Rating } from './Rating/Rating'
 export { CustomLink } from './CustomLink/CustomLink'
 export { Tag } from './Tag/Tag'
 export { SearchBar } from './SearchBar/SearchBar'
