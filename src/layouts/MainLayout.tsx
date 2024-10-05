@@ -14,6 +14,10 @@ export const MainLayout: React.FC<Props> = ({ children }) => {
 						Portal useful to render a modal over the content, in this case, the movie information
 					*/}
 					<div id='movieInfoPortal' />
+					{/* 
+						Portal to render a snackbar over the content
+					*/}
+					<div id='snackbarPortal' />
 
 					{/* 
 						Content render
