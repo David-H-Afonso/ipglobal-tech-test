@@ -7,6 +7,7 @@ export const usePostRating = () => {
 	const [loading, setLoading] = useState(false)
 	const [error, setError] = useState<string | null>(null)
 	const guest = useAppSelector((state) => state.guest.value)
+	const errorMessage = 'Failed to post rating'
 
 	const rateMovie = async (movieId: string, rate: string): Promise<boolean> => {
 		setLoading(true)
@@ -17,7 +18,7 @@ export const usePostRating = () => {
 			if (response?.status_code === 12) return true
 			return false
 		} catch (e: unknown) {
-			setError('Failed to post rating')
+			setError(errorMessage)
 			errorHandler(e)
 			return false
 		} finally {
