@@ -18,6 +18,13 @@ cd .\ipglobal-tech-test\
 # install required dependencies
 npm install
 # start project, by default on http://localhost:3000/
+```
+
+Before running the project, you'll need the API key. To use it, create a new file in the project root named `.env.local`. Its content should be as follows:
+`TMDB_API_KEY=8f781d70654b5a6f2fa69770d1d115a3`
+(Note that there's no problem adding this key to the Readme.md since it's a public one provided by the website itself. If it was private it musn't be displayed here.)
+
+```bash
 npm run dev
 ```
 
@@ -83,8 +90,6 @@ Here we store all the types used on the app.
 
 In this folder we collect common functions that are not tied to an specific context or component to be able to reuse them in more than one place.
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
 ## Development process
 
 In this section, I will describe my thought process and the sequence of actions taken as precisely as possible. This can be verified through the commits, where I have aimed to be as specific as possible.
@@ -142,4 +147,8 @@ In this final section, I began by creating a Rating component that allows users 
 I integrated this Rating component into the MovieInformation modal, enabling users to submit ratings by clicking on a star.
 This aspect posed some challenges, which are detailed in the **Development process** section above.
 
-Once I established the approach for creating this list, I proceeded to develop a RatedMovies entity along with its associated logic. Upon completion, I implemented the functionality to capture ratings when users click on the stars within the movie information modal. I ensured that the ratings were recorded in our custom entity and sent to the API. (Even though they are not currently retrieved or utilized. However, since this requirement was specified, I included it). To add further functionality, I implemented a mechanism whereby the rating must first receive a 200 status response from the API before being added to Redux.
+Once I established the approach for creating this list, I proceeded to develop a RatedMovies entity along with its associated logic. Upon completion, I implemented the functionality to capture ratings when users click on the stars within the movie information modal. I ensured that the ratings were recorded in our custom entity and sent to the API. (Even though they are not currently retrieved or utilized. However, since this requirement was specified, I included it). To add further functionality, I implemented a mechanism whereby the rating must first receive a 200 status response from the API before being added to Redux. With the custom entity for movies and ratings now fully operational, I created a page similar to Popular Movies to display the movies that have been rated. Later, I extended the functionality to display the user's given rating within the movie info modal, incorporating this feature into both Popular Movies and the Search functionality.
+
+## Test
+
+As a final step, I added tests for a service and a element component to show how testing can be handled in those cases. While greater coverage and more thorough testing are always preferable, these tests were designed to ensure that key functionality is working in both files and to demonstrate my approach to testing in these scenarios. I utilized Vitest for easier setup.
