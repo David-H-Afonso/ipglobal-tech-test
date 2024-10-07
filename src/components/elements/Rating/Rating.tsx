@@ -56,7 +56,7 @@ export const Rating: React.FC<StarRatingProps> = (props) => {
 						{/* Half Star Render */}
 						<input type='radio' name='rating' className='hidden' value={halfStarValue} />
 						<FaStarHalfAlt
-							className={`${commonStarStyles} absolute left-0 top-0 ${
+							className={`fa-star-half ${commonStarStyles} absolute left-0 top-0 ${
 								currentValue >= halfStarValue ? 'text-yellow-400' : 'text-gray-400'
 							}`}
 							size={24}
@@ -65,7 +65,7 @@ export const Rating: React.FC<StarRatingProps> = (props) => {
 						{/* Full Star Render */}
 						<input type='radio' name='rating' className='hidden' value={fullStarValue} />
 						<FaStar
-							className={`${commonStarStyles} ${
+							className={`fa-star ${commonStarStyles} ${
 								currentValue >= fullStarValue ? 'text-yellow-400' : 'text-gray-400'
 							}`}
 							size={24}
