@@ -1,7 +1,7 @@
 // Route to get the genre list
 
 import { GenresData } from '@/types/genres'
-import { errorHandler, respondeErrorHandler } from '@/utils'
+import { errorHandler } from '@/utils'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 const genres = async (req: NextApiRequest, res: NextApiResponse<GenresData>) => {
@@ -13,10 +13,7 @@ const genres = async (req: NextApiRequest, res: NextApiResponse<GenresData>) => 
 	try {
 		const response = await fetch(url)
 
-		if (!response.ok) {
-			respondeErrorHandler(response)
-			return
-		}
+		if (!response.ok) return
 
 		const data = await response.json()
 

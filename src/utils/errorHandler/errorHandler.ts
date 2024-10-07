@@ -19,10 +19,6 @@ Any error instance that's found and it's not handled should be added.
 
 import { Dispatch, SetStateAction } from 'react'
 
-export const respondeErrorHandler = async (response: Response) => {
-	throw new Error(`Response was not ok:', ${await response.text()}`)
-}
-
 export const errorHandler = (e: unknown, setError?: Dispatch<SetStateAction<string | null>>) => {
 	/*
         ERROR INSTANCE

@@ -1,7 +1,7 @@
 // Route to get the guest session
 
 import { GuestData } from '@/types/guest'
-import { errorHandler, respondeErrorHandler } from '@/utils'
+import { errorHandler } from '@/utils'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 const guest = async (req: NextApiRequest, res: NextApiResponse<GuestData>) => {
@@ -13,10 +13,7 @@ const guest = async (req: NextApiRequest, res: NextApiResponse<GuestData>) => {
 	try {
 		const response = await fetch(url)
 
-		if (!response.ok) {
-			respondeErrorHandler(response)
-			return
-		}
+		if (!response.ok) return
 
 		const data = await response.json()
 

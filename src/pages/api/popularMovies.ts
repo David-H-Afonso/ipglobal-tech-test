@@ -1,7 +1,7 @@
 // Route to get the movie url
 
 import { MoviesData } from '@/types/movies'
-import { errorHandler, respondeErrorHandler } from '@/utils'
+import { errorHandler } from '@/utils'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 const popularMovies = async (req: NextApiRequest, res: NextApiResponse<MoviesData>) => {
@@ -13,10 +13,7 @@ const popularMovies = async (req: NextApiRequest, res: NextApiResponse<MoviesDat
 	try {
 		const response = await fetch(url)
 
-		if (!response.ok) {
-			respondeErrorHandler(response)
-			return
-		}
+		if (!response.ok) return
 
 		const data = await response.json()
 

@@ -1,5 +1,5 @@
 import { SearchData } from '@/types/search'
-import { errorHandler, respondeErrorHandler } from '@/utils'
+import { errorHandler } from '@/utils'
 
 export const postFindMovies = async (searchTerm: string) => {
 	try {
@@ -9,10 +9,7 @@ export const postFindMovies = async (searchTerm: string) => {
 				'Content-Type': 'application/json',
 			},
 		})
-		if (!response.ok) {
-			respondeErrorHandler(response)
-			return
-		}
+		if (!response.ok) return
 
 		const data: SearchData = await response.json()
 		return data.movies

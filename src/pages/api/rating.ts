@@ -1,7 +1,7 @@
 // Route to find the movie url
 
 import { Rating } from '@/types/rating'
-import { errorHandler, respondeErrorHandler } from '@/utils'
+import { errorHandler } from '@/utils'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 const rating = async (req: NextApiRequest, res: NextApiResponse<Rating>) => {
@@ -32,10 +32,7 @@ const rating = async (req: NextApiRequest, res: NextApiResponse<Rating>) => {
 			body: JSON.stringify({ value }),
 		})
 
-		if (!response.ok) {
-			respondeErrorHandler(response)
-			return
-		}
+		if (!response.ok) return
 
 		const data: Rating = await response.json()
 

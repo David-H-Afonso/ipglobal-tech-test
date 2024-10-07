@@ -1,2 +1,2 @@
-export { errorHandler, respondeErrorHandler } from './errorHandler/errorHandler'
+export { errorHandler } from './errorHandler/errorHandler'
 export { getGenreNameById } from './getGenreNameById/getGenreNameById'
